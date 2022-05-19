@@ -1,6 +1,6 @@
 # Archway node monitoring tool
 
-To monitor you node your should installe and configure:
+To monitor you node your should install and configure:
 * [InfluxDB](https://www.influxdata.com/products/influxdb/)
 * [Grafana](https://grafana.com/)
 
