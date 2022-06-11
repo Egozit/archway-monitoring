@@ -45,19 +45,18 @@ Clone this project repo and copy variable script template
 ```
 git clone https://github.com/Egozit/archway-monitoring.git
 cd archway-monitoring
-cp mon_var_template.sh mon_var.sh
-nano mon_var.sh
+nano variables.sh
 ```
 
-Insert your parameters to **mon_var.sh**:
+Insert your parameters to **variables.sh**:
 * full path to archway binary to COS_BIN_NAME ( check ```which archwayd```)
 * node PRC port to COS_PORT_RPC ( check in file ```path_to_archway_node_config/config/config.toml```)
 * node validator address to COS_VALOPER ( like ```archwayvaloper********```)
 
-Save changes in mon_var.sh and enable execution permissions:
+Save changes in variables.sh and enable execution permissions:
 
 ```
-chmod +x monitor.sh mon_var.sh
+chmod +x monitor.sh variables.sh
 ```
 
 Edit telegraf configuration
