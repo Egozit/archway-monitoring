@@ -62,36 +62,16 @@ chmod +x monitor.sh variables.sh
 Edit telegraf configuration
 ```
 sudo mv /etc/telegraf/telegraf.conf /etc/telegraf/telegraf.conf.orig
+sudo mv telegraf.conf /etc/telegraf/telegraf.conf
 sudo nano /etc/telegraf/telegraf.conf
 ```
-Copy it to config and set you name to identify yourself in grafana dashboard and check correctness of the path to your monitor.sh file and username your validator runs at:
+Set you name to identify yourself in grafana dashboard and check correctness of the path to your monitor.sh file and username your validator runs at. Correct these two settings in the configuration file:
 ```
 # Global Agent Configuration
 [agent]
   hostname = "YOUR_MONIKER/SERVER_NAME" # set this to a name you want to identify your node in the grafana dashboard
-  flush_interval = "15s"
-  interval = "15s"
-# Input Plugins
-[[inputs.cpu]]
-  percpu = true
-  totalcpu = true
-  collect_cpu_time = false
-  report_active = false
-[[inputs.disk]]
-  ignore_fs = ["devtmpfs", "devfs"]
-[[inputs.io]]
-[[inputs.mem]]
-[[inputs.net]]
-[[inputs.system]]
-[[inputs.swap]]
-[[inputs.netstat]]
-[[inputs.diskio]]
-# Output Plugin InfluxDB
-[[outputs.influxdb]]
-  database = "archwaymetricsdb"
-  urls = [ "http://95.216.2.219:8086" ] 
-  username = "metric" 
-  password = "password" 
+...
+...
 [[inputs.exec]]
   commands = ["sudo su -c /root/archway-monitoring/monitor.sh -s /bin/bash root"] # change path to your monitor.sh file and username to the one that validator runs at (e.g. root)
   interval = "15s"
