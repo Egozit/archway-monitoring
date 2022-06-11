@@ -2,7 +2,7 @@
 pushd `dirname ${0}` >/dev/null || exit 1
 
 # Get node variables
-source ./mon_var.sh
+source ./variables.sh
 # Get timestamp
 now=$(date +%s%N)
 
